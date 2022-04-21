@@ -15,4 +15,8 @@
     <string name="submit">SUBMIT</string>
     <string name="delete">DELETE</string>
     <string name="search">Search</string>
+    <string name="date">Date</string>
+    <string name="pending">Pending</string>
+    <string name="ready">Ready</string>
+    <string name="completed">Completed</string>
 </resources>

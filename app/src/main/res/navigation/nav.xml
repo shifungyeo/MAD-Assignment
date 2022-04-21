@@ -8,36 +8,36 @@
     <fragment
         android:id="@+id/mainPageFragment"
         android:name="my.com.foodorderingstaffapp.MainPageFragment"
-        android:label="fragment_main_page"
+        android:label="Food Ordering Staff App"
         tools:layout="@layout/fragment_main_page" />
     <fragment
         android:id="@+id/orderFragment"
         android:name="my.com.foodorderingstaffapp.OrderFragment"
-        android:label="fragment_order"
+        android:label="ORDER"
         tools:layout="@layout/fragment_order" />
     <fragment
         android:id="@+id/productFragment"
         android:name="my.com.foodorderingstaffapp.ProductFragment"
-        android:label="fragment_product"
+        android:label="PRODUCT"
         tools:layout="@layout/fragment_product" />
     <fragment
         android:id="@+id/reportFragment"
         android:name="my.com.foodorderingstaffapp.ReportFragment"
-        android:label="fragment_report"
+        android:label="REPORT"
         tools:layout="@layout/fragment_report" />
     <fragment
         android:id="@+id/addProductFragment"
         android:name="my.com.foodorderingstaffapp.AddProductFragment"
-        android:label="fragment_add_product"
+        android:label="ADD PRODUCT"
         tools:layout="@layout/fragment_add_product" />
     <fragment
         android:id="@+id/editProductFragment"
         android:name="my.com.foodorderingstaffapp.EditProductFragment"
-        android:label="fragment_edit_product"
+        android:label="EDIT PRODUCT"
         tools:layout="@layout/fragment_edit_product" />
     <fragment
         android:id="@+id/orderDetailFragment"
         android:name="my.com.foodorderingstaffapp.OrderDetailFragment"
-        android:label="fragment_order_detail"
+        android:label="ORDER DETAIL"
         tools:layout="@layout/fragment_order_detail" />
 </navigation>

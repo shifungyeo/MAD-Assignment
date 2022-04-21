@@ -17,6 +17,10 @@ class OrderAdapter(val fn: (ViewHolder, Order) -> Unit = { _, _ ->} ) : ListAdap
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view){
         val root = view
+        val orderId : TextView = view.findViewById(R.id.txtOrderID)
+        val totalPrice : TextView = view.findViewById(R.id.txtTotalPrice)
+        val orderStatus : TextView = view.findViewById(R.id.txtOrderStatus)
+        val orderDate : TextView = view.findViewById(R.id.txtOrderDate)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -29,7 +33,10 @@ class OrderAdapter(val fn: (ViewHolder, Order) -> Unit = { _, _ ->} ) : ListAdap
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val order = getItem(position)
 
-
+        holder.orderId.text = order.id
+        holder.totalPrice.text = String.format("%.2f", order.totalPrice)
+        holder.orderStatus.text = order.orderStatus
+        holder.orderDate.text = order.orderDate
 
         fn(holder, order)
     }
