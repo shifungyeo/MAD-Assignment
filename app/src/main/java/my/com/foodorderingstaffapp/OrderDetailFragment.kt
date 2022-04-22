@@ -5,7 +5,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.RadioButton
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import my.com.foodorderingstaffapp.databinding.FragmentOrderDetailBinding
@@ -18,6 +17,10 @@ class OrderDetailFragment : Fragment() {
 
     private val id by lazy { requireArguments().getString("id") ?: "" }
     var orderStatus : String = ""
+    var itemList : ArrayList<String> = ArrayList()
+    var quantityList : ArrayList<Int> = ArrayList()
+    var itemStr : String = ""
+    var quantityStr : String = ""
 
     override fun onCreateView( inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = FragmentOrderDetailBinding.inflate(inflater,container,false)
@@ -42,8 +45,20 @@ class OrderDetailFragment : Fragment() {
     private fun load(o: Order) {
         binding.txtOrderID.text = o.id
         binding.txtUserId.text = o.userID
-        binding.txtItem.text = ""
-        binding.txtQuantity.text = ""
+        itemList = o.item
+        for (i in itemList){
+           itemStr += i
+            itemStr += ", "
+        }
+        itemStr = itemStr.substring(0, itemStr.length - 2)
+        binding.txtItem.text = itemStr
+        quantityList = o.quantity
+        for (i in quantityList){
+            quantityStr += i.toString()
+            quantityStr += ", "
+        }
+        quantityStr = quantityStr.substring(0, quantityStr.length - 2)
+        binding.txtQuantity.text = quantityStr
         binding.txtTotalQuantity.text = o.totalQuantity.toString()
         binding.txtTotalPrice.text = String.format("%.2f", o.totalPrice)
         binding.txtPayMethod.text = o.paymentMethod
@@ -56,7 +71,7 @@ class OrderDetailFragment : Fragment() {
     }
 
     private fun submit() {
-        if(binding.rbPending.isChecked)
+        if (binding.rbPending.isChecked)
             orderStatus = "Pending"
         else if (binding.rbReady.isChecked)
             orderStatus = "Ready"
